@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo do Céu · Confeitaria Artesanal por Duda Soares | Bolos & Doces RJ</title>
+  <meta name="description" content="Bolos personalizados, vintage cakes estilo Pinterest, bentô cakes e sobremesas na travessa no Rio de Janeiro. Confeitaria artesanal por Duda Soares formada pelo Instituto Gourmet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://viniciomarcos000-ui.github.io/site-algodoceu/">
+  <meta property="og:title" content="Algo do Céu 🩵 Confeitaria Artesanal · Duda Soares">
+  <meta property="og:description" content="Bolos decorados estilo Pinterest, vintage cakes e doces artesanais no Rio de Janeiro. Monte seu bolo personalizado e peça online!">
+  <meta property="og:image" content="https://viniciomarcos000-ui.github.io/site-algodoceu/assets/hero_cake.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpeg" href="assets/profile_pic.jpg">
+</head>
+<body>
+
+  <!-- Barra Superior de Aviso & Encomendas -->
+  <aside class="top-announcement" aria-label="Avisos importantes">
+    <div class="container announcement-inner">
+      <div class="announcement-tag">✨ Encomendas Abertas</div>
+      <p class="announcement-text">Adoçando momentos no Rio de Janeiro desde 2021 🩵 · Atendimento em Bonsucesso, Ilha do Governador e Grande Rio</p>
+      <a href="#cardapio" class="announcement-link">Ver Cardápio <span class="arrow">→</span></a>
+    </div>
+  </aside>
+
+  <!-- Navegação Principal com Efeito Vidro Fosco -->
+  <header class="main-header" id="navbar">
+    <div class="container nav-wrapper">
+      <a href="#inicio" class="brand-logo" aria-label="Algo do Céu Home">
+        <img src="assets/profile_pic.jpg" alt="Logo Algo do Céu - Duda Soares" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-title">Algo do Céu</span>
+          <span class="logo-subtitle">Confeitaria Artesanal</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#destaques" class="nav-link">Criações</a></li>
+          <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+          <li><a href="#simulador" class="nav-link">Monte seu Bolo</a></li>
+          <li><a href="#chef" class="nav-link">A Chef</a></li>
+          <li><a href="#depoimentos" class="nav-link">Avaliações</a></li>
+          <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.instagram.com/algodoceu_/" target="_blank" rel="noopener noreferrer" class="icon-social" title="Instagram @algodoceu_">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span class="social-handle">@algodoceu_</span>
+        </a>
+
+        <a href="https://wa.me/5521966495123?text=Ol%C3%A1%20Duda!%20Vim%20pelo%20site%20da%20Algo%20do%20C%C3%A9u%20e%20gostaria%20de%20fazer%20uma%20encomenda%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="btn-primary pill-btn">
+          <span class="btn-text-desktop">Pedir no WhatsApp</span><span class="btn-text-mobile">Pedir</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+        <!-- Botão Mobile -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION: Inspirada no mockup do usuário com estética gourmet clássica -->
+  <section class="hero-section" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Doces Artesanais Feitos com Amor</span>
+        </div>
+
+        <h1 class="hero-title">
+          Momentos doces <br>
+          <em>começam aqui.</em>
+        </h1>
+
+        <p class="hero-description">
+          Bolos personalizados, vintage cakes estilo Pinterest e sobremesas que encantam os olhos e abraçam o paladar. Feitos artesanalmente pela <strong>Chef Confeiteira Duda Soares</strong> no Rio de Janeiro.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Gostaria%20de%20ver%20a%20disponibilidade%20para%20uma%20encomenda%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+            <span>Fazer Encomenda</span>
+            <span class="circle-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+
+          <a href="#simulador" class="btn-hero-secondary">
+            <span>Monte seu Bolo</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </a>
+        </div>
+
+        <!-- Selos de Confiança / Badges -->
+        <div class="hero-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <div class="feature-info">
+              <strong>Formada no Instituto Gourmet</strong>
+              <span>Técnica & Padrão Profissional</span>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon sky">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+            <div class="feature-info">
+              <strong>Desde 2021</strong>
+              <span>Mais de 400 festas adoçadas</span>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon pink">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <div class="feature-info">
+              <strong>100% Artesanal</strong>
+              <span>Ingredientes de alta qualidade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card (Foto de Bolo com Prato Rústico & Badges Flutuantes) -->
+      <div class="hero-visual">
+        <div class="hero-card-frame">
+          <div class="hero-img-wrapper">
+            <img src="assets/hero_cake.jpg" alt="Bolo Artesanal com Frutas Vermelhas Algo do Céu" class="hero-cake-img">
+            <div class="hero-glow"></div>
+          </div>
+
+          <!-- Floating Badges no estilo refinado Apple / Patisserie -->
+          <div class="floating-badge badge-top-right">
+            <div class="badge-icon-squircle">🍰</div>
+            <div class="badge-text-box">
+              <span class="badge-label">Receita Autoral</span>
+              <span class="badge-val">Massa Fofinha & Úmida</span>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-bottom-left">
+            <div class="badge-icon-squircle sky">🩵</div>
+            <div class="badge-text-box">
+              <span class="badge-label">Qualidade Garantida</span>
+              <span class="badge-val">5.0 ★★★★★ (Avaliações)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTAQUES INSTAGRAM / STORIES HIGHLIGHTS INTERATIVOS -->
+  <section class="highlights-section" id="destaques">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="sub-heading">Categorias & Especialidades</span>
+        <h2 class="section-heading">O que preparamos para você</h2>
+        <p class="section-subtext">Do bentô cake divertido para presentear até os bolos temáticos de 2 andares para a festa dos sonhos.</p>
+      </div>
+
+      <div class="highlights-grid">
+        <a href="#cardapio" data-filter="vintage" class="highlight-item active-pill">
+          <div class="highlight-bubble">
+            <img src="assets/feed/cake_9.jpg" alt="Bolos Vintage & Tendência">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Bolos Vintage</span>
+          <span class="highlight-count">Estilo Pinterest</span>
+        </a>
+
+        <a href="#cardapio" data-filter="tematicos" class="highlight-item">
+          <div class="highlight-bubble">
+            <img src="assets/feed/cake_7.jpg" alt="Bolos Temáticos & Infantis">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Temáticos & Festas</span>
+          <span class="highlight-count">Personagens & Topos 3D</span>
+        </a>
+
+        <a href="#cardapio" data-filter="bento" class="highlight-item">
+          <div class="highlight-bubble">
+            <img src="assets/feed/cake_5.jpg" alt="Bentô Cakes Divertidos">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Bentô Cakes</span>
+          <span class="highlight-count">Frases & Afeto</span>
+        </a>
+
+        <a href="#cardapio" data-filter="borboleta" class="highlight-item">
+          <div class="highlight-bubble">
+            <img src="assets/feed/cake_4.jpg" alt="Bolo Formato Borboleta">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Bolo Borboleta 3D</span>
+          <span class="highlight-count">Corte Esculpido</span>
+        </a>
+
+        <a href="#cardapio" data-filter="travessa" class="highlight-item">
+          <div class="highlight-bubble">
+            <img src="assets/feed/cake_12.jpg" alt="Sobremesas na Travessa Banoffee">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Na Travessa</span>
+          <span class="highlight-count">Banoffee Especial</span>
+        </a>
+
+        <a href="#cardapio" data-filter="docinhos" class="highlight-item">
+          <div class="highlight-bubble">
+            <img src="assets/docinhos.jpg" alt="Docinhos & Brigadeiros">
+            <span class="bubble-ring"></span>
+          </div>
+          <span class="highlight-title">Docinhos Gourmet</span>
+          <span class="highlight-count">Brigadeiros Nobres</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO / VITRINE DE PRODUTOS REAIS (Design inspirado no screenshot) -->
+  <section class="menu-section" id="cardapio">
+    <div class="container">
+      <div class="menu-header-row">
+        <div>
+          <span class="sub-heading">Cardápio de Criações</span>
+          <h2 class="section-heading">Nossos Bolos & Doces Reais</h2>
+          <p class="section-subtext">Todas as fotos são criações autênticas da Chef Duda Soares produzidas para nossos clientes.</p>
+        </div>
+
+        <!-- Filtros de Categoria -->
+        <div class="category-tabs" id="menuTabs">
+          <button class="tab-btn active" data-target="all">Todos</button>
+          <button class="tab-btn" data-target="vintage">Vintage & Pinterest</button>
+          <button class="tab-btn" data-target="tematicos">Temáticos & Festas</button>
+          <button class="tab-btn" data-target="bento">Bentô & Personalizados</button>
+          <button class="tab-btn" data-target="travessa">Sobremesas Família</button>
+        </div>
+      </div>
+
+      <!-- Grid de Produtos -->
+      <div class="products-grid" id="productsGrid">
+
+        <!-- 1. Bolo Vintage Cherry -->
+        <article class="product-card" data-category="vintage">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_9.jpg" alt="Bolo Vintage Cherries Retrô" loading="lazy">
+            <span class="badge-tag">Mais Pedido</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Vintage Cake</span>
+              <span class="size-tag">Aro 20cm · 15-20 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Vintage Cherries</h3>
+            <p class="product-desc">O clássico que viralizou no Pinterest! Massa de chocolate amanteigada, recheio generoso de Ninho, chantininho acetinado e cerejas vermelhas com glitter comestível.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 130</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Amei%20o%20*Bolo%20Vintage%20Cherries*%20no%20site%20e%20quero%20encomendar!%20%F0%9F%8D%92" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Bolo Formato Borboleta 3D -->
+        <article class="product-card" data-category="vintage">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_4.jpg" alt="Bolo Formato Borboleta 3D" loading="lazy">
+            <span class="badge-tag sky">Esculpido</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Bolo Esculpido</span>
+              <span class="size-tag">Especial · 20 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Borboleta 3D Encantada</h3>
+            <p class="product-desc">Corte artístico esculpido em formato de asas de borboleta, com babadinhos duplos de chantilly nas bordas e acabamento rendado. Perfeito para celebrações delicadas.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 145</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Quero%20encomendar%20o%20*Bolo%20Borboleta%203D*%20que%20vi%20no%20site!%20%F0%9F%A6%8B" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Banoffee na Travessa -->
+        <article class="product-card" data-category="travessa">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_12.jpg" alt="Banoffee Especial na Travessa" loading="lazy">
+            <span class="badge-tag gold">Sobremesa</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Sobremesa na Travessa</span>
+              <span class="size-tag">Serve até 10 pessoas</span>
+            </div>
+            <h3 class="product-title">Banoffee Tradicional dos Céus</h3>
+            <p class="product-desc">Base crocante de biscoito amanteigado, doce de leite cremoso artesanal, camadas fartas de bananas frescas e chantilly aveludado polvilhado com canela pura.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">Travessa</span>
+                <span class="price-val">R$ 95</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Gostaria%20de%20encomendar%20a%20*Banoffee%20na%20Travessa*%20para%20o%20fim%20de%20semana!%20%F0%9F%8D%8C" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Bentô Cake Flork Divertido -->
+        <article class="product-card" data-category="bento">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_5.jpg" alt="Bentô Cake com Frase Flork" loading="lazy">
+            <span class="badge-tag pink">Personalizado</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Bentô / Mini Cake</span>
+              <span class="size-tag">Aro 15cm ou 20cm</span>
+            </div>
+            <h3 class="product-title">Bentô Cake 'Coração de Mocinha'</h3>
+            <p class="product-desc">O sucesso das comemorações! Massa mesclada fofinha com recheio duplo de brigadeiro ao leite e brigadeiro branco, com frases bem-humoradas e espátula em escama rosa.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 80</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Quero%20fazer%20um%20*Bent%C3%B4%20Cake%20Personalizado*%20com%20frase%20especial!%20%F0%9F%A5%B3" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Bolo Meninas Superpoderosas / Florzinha -->
+        <article class="product-card" data-category="tematicos">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_3.jpg" alt="Bolo Meninas Superpoderosas Florzinha" loading="lazy">
+            <span class="badge-tag">Temático</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Bolo Temático</span>
+              <span class="size-tag">Aro 20cm · 20 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Florzinha / Superpoderosas</h3>
+            <p class="product-desc">Cheio de atitude e fofura! Textura espatulada em rosa chiclete, pérolas de açúcar peroladas e topos personalizados com frases divertidas. Uma explosão de carinho.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 135</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Amei%20o%20*Bolo%20das%20Meninas%20Superpoderosas*%20e%20gostaria%20de%20or%C3%A7ar!%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Bolo Brawl Stars 2 Andares -->
+        <article class="product-card" data-category="tematicos">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_7.jpg" alt="Bolo Brawl Stars 2 Andares Infantil" loading="lazy">
+            <span class="badge-tag sky">2 Andares</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Festa Infantil & Games</span>
+              <span class="size-tag">25cm + 30cm · 45-50 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Épico Brawl Stars</h3>
+            <p class="product-desc">O centro das atenções de qualquer festa gamer! Dois andares fartos com massa mesclada, recheio de brigadeiro gourmet ao leite e acabamento em relevo com cactos e arena.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 240</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Gostaria%20de%20or%C3%A7ar%20um%20*Bolo%20de%202%20Andares%20Tem%C3%A1tico*%20igual%20ao%20Brawl%20Stars!%20%F0%9F%8E%AE" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Bolo O Incrível Mundo de Gumball -->
+        <article class="product-card" data-category="tematicos">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_8.jpg" alt="Bolo O Incrível Mundo de Gumball" loading="lazy">
+            <span class="badge-tag">Infantil</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Bolo Infantil</span>
+              <span class="size-tag">Aro 25cm · 30 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Mundo de Gumball</h3>
+            <p class="product-desc">Espatulado azul céu em degradê celestial, pérolas de confeiteiro e topo 3D vibrante. Massa fofíssima de chocolate 50% recheada com Leite Ninho bem cremoso.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 160</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Quero%20saber%20mais%20sobre%20o%20*Bolo%20Gumball*%20para%20anivers%C3%A1rio!%20%F0%9F%8C%88" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Bolo Cavaleiros do Zodíaco -->
+        <article class="product-card" data-category="tematicos">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_10.jpg" alt="Bolo Cavaleiros do Zodíaco" loading="lazy">
+            <span class="badge-tag gold">Anime & Geek</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Edição Especial Geek</span>
+              <span class="size-tag">Aro 20cm · 20 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Cavaleiros do Zodíaco</h3>
+            <p class="product-desc">Massa de baunilha suave com recheio de Leite Ninho com Nutella original e detalhes espatulados em azul mar e dourado nobre com esferas metalizadas.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 145</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Vi%20o%20*Bolo%20Cavaleiros%20do%20Zod%C3%ADaco*%20no%20site%20e%20gostaria%20de%20encomendar!%20%E2%9A%94%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Bolo Mocidade Independente de Padre Miguel -->
+        <article class="product-card" data-category="tematicos">
+          <div class="product-thumb">
+            <img src="assets/feed/cake_6.jpg" alt="Bolo Mocidade Independente de Padre Miguel" loading="lazy">
+            <span class="badge-tag">Carnaval & Samba</span>
+          </div>
+          <div class="product-body">
+            <div class="product-meta">
+              <span class="cat-label">Bolo Comemorativo</span>
+              <span class="size-tag">Aro 20cm · 20 fatias</span>
+            </div>
+            <h3 class="product-title">Bolo Verde & Branco Mocidade</h3>
+            <p class="product-desc">Um pedaço de carnaval carioca com a força da Mocidade! Massa mesclada tradicional recheada com doce de leite artesanal com ameixa e chocolate ao leite.</p>
+            <div class="product-footer">
+              <div class="price-box">
+                <span class="price-prefix">A partir de</span>
+                <span class="price-val">R$ 140</span>
+              </div>
+              <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Quero%20or%C3%A7ar%20um%20*Bolo%20da%20Mocidade%20Independente*%20para%20festa!%20%F0%9F%9F%A9%E2%AD%90" target="_blank" rel="noopener noreferrer" class="btn-order-circle" title="Pedir pelo WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER DIVIDIDO ESTILO MOCKUP ("Servicor Coffee / Sobremesas Especiais") -->
+  <section class="split-feature-banner">
+    <div class="container split-container">
+      <div class="split-img-box">
+        <img src="assets/banner_cupcake.jpg" alt="Cupcake Gourmet Artesanal com Morango Algo do Céu" class="split-cupcake-img">
+        <div class="split-badge-tag">Doces Finos</div>
+      </div>
+      <div class="split-content-box">
+        <span class="sub-heading">Sobremesas & Mimos Individuais</span>
+        <h2 class="split-title">Doces que transformam um café em um momento inesquecível.</h2>
+        <p class="split-desc">
+          Além dos nossos bolos de festa, preparamos caixas de brigadeiros gourmet belgas, cupcakes decorados para presentes corporativos e lembrancinhas de aniversários e batizados.
+        </p>
+        <div class="split-points">
+          <div class="point-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Caixas para Presente</span>
+          </div>
+          <div class="point-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cento de Docinhos para Festas</span>
+          </div>
+          <div class="point-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Personalização de Embalagens</span>
+          </div>
+        </div>
+        <div class="split-cta-row">
+          <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Gostaria%20de%20saber%20os%20sabores%20de%20docinhos%20e%20cupcakes%20dispon%C3%ADveis%20%F0%9F%A7%81%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn-primary pill-btn">
+            <span>Consultar Docinhos & Mimos</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR INTERATIVO: MONTE SEU BOLO (Experiência Premium) -->
+  <section class="simulator-section" id="simulador">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="sub-heading">Simulador Exclusivo</span>
+        <h2 class="section-heading">Monte o Bolo dos Seus Sonhos</h2>
+        <p class="section-subtext">Escolha cada detalhe, visualize a estimativa em tempo real e envie seu pedido formatado direto no WhatsApp da Duda!</p>
+      </div>
+
+      <div class="simulator-card">
+        <div class="sim-steps-container">
+
+          <!-- Passo 1: Tamanho -->
+          <div class="sim-step-block">
+            <div class="step-label">
+              <span class="step-num">1</span>
+              <div>
+                <h4>Escolha o Tamanho</h4>
+                <p>Quantas pessoas você quer servir com fartura?</p>
+              </div>
+            </div>
+            <div class="options-grid" id="optSize">
+              <button class="opt-btn active" data-type="size" data-name="Aro 15cm (Mini / Bentô)" data-price="80" data-fatias="Serve 8 a 10 fatias">
+                <span class="opt-title">Aro 15cm</span>
+                <span class="opt-sub">8 a 10 fatias</span>
+                <span class="opt-price">R$ 80</span>
+              </button>
+              <button class="opt-btn" data-type="size" data-name="Aro 20cm (O mais pedido)" data-price="135" data-fatias="Serve 15 a 20 fatias">
+                <span class="opt-title">Aro 20cm ⭐</span>
+                <span class="opt-sub">15 a 20 fatias</span>
+                <span class="opt-price">R$ 135</span>
+              </button>
+              <button class="opt-btn" data-type="size" data-name="Aro 25cm (Festa Família)" data-price="170" data-fatias="Serve 25 a 30 fatias">
+                <span class="opt-title">Aro 25cm</span>
+                <span class="opt-sub">25 a 30 fatias</span>
+                <span class="opt-price">R$ 170</span>
+              </button>
+              <button class="opt-btn" data-type="size" data-name="2 Andares (Grande Celebração)" data-price="250" data-fatias="Serve 45 a 50 fatias">
+                <span class="opt-title">2 Andares</span>
+                <span class="opt-sub">45 a 50 fatias</span>
+                <span class="opt-price">R$ 250</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Passo 2: Massa -->
+          <div class="sim-step-block">
+            <div class="step-label">
+              <span class="step-num">2</span>
+              <div>
+                <h4>Escolha a Massa</h4>
+                <p>Massa artesanal amanteigada, estruturada e molhadinha na medida certa.</p>
+              </div>
+            </div>
+            <div class="options-grid" id="optMassa">
+              <button class="opt-btn active" data-type="massa" data-name="Baunilha Tradicional">
+                <span class="opt-title">Baunilha Fofinha</span>
+                <span class="opt-sub">Suave com toque de baunilha</span>
+              </button>
+              <button class="opt-btn" data-type="massa" data-name="Chocolate Cacau 50%">
+                <span class="opt-title">Cacau Nobre 50%</span>
+                <span class="opt-sub">Intensa e macia</span>
+              </button>
+              <button class="opt-btn" data-type="massa" data-name="Mesclada da Chef">
+                <span class="opt-title">Mesclada da Chef ⭐</span>
+                <span class="opt-sub">O equilíbrio perfeito</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Passo 3: Recheio -->
+          <div class="sim-step-block">
+            <div class="step-label">
+              <span class="step-num">3</span>
+              <div>
+                <h4>Escolha o Recheio Principal</h4>
+                <p>Recheios fartos cozidos lentamente no ponto de brigadeiro de colher.</p>
+              </div>
+            </div>
+            <div class="options-grid" id="optRecheio">
+              <button class="opt-btn active" data-type="recheio" data-name="Leite Ninho Trufado">
+                <span class="opt-title">Ninho Trufado</span>
+                <span class="opt-sub">Cremoso e aveludado</span>
+              </button>
+              <button class="opt-btn" data-type="recheio" data-name="Brigadeiro Gourmet ao Leite">
+                <span class="opt-title">Brigadeiro ao Leite</span>
+                <span class="opt-sub">Cacau clássico cremoso</span>
+              </button>
+              <button class="opt-btn" data-type="recheio" data-name="Ninho com Nutella (+R$ 15)" data-extra="15">
+                <span class="opt-title">Ninho com Nutella ⭐</span>
+                <span class="opt-sub">Nutella original pura (+R$ 15)</span>
+              </button>
+              <button class="opt-btn" data-type="recheio" data-name="Doce de Leite com Ameixa">
+                <span class="opt-title">Doce de Leite c/ Ameixa</span>
+                <span class="opt-sub">Sabor de aconchego</span>
+              </button>
+              <button class="opt-btn" data-type="recheio" data-name="Brigadeiro Branco c/ Frutas">
+                <span class="opt-title">Brigadeiro Branco</span>
+                <span class="opt-sub">Leve e delicado</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Passo 4: Estilo & Decoração -->
+          <div class="sim-step-block">
+            <div class="step-label">
+              <span class="step-num">4</span>
+              <div>
+                <h4>Estilo da Decoração</h4>
+                <p>Como você sonha que seja a apresentação visual?</p>
+              </div>
+            </div>
+            <div class="options-grid" id="optDecoracao">
+              <button class="opt-btn active" data-type="decoracao" data-name="Vintage Pinterest (Babadinhos & Cerejas)">
+                <span class="opt-title">Vintage Cherries</span>
+                <span class="opt-sub">Babadinhos de bico e cerejas</span>
+              </button>
+              <button class="opt-btn" data-type="decoracao" data-name="Temático com Topo 3D Personalizado">
+                <span class="opt-title">Temático c/ Topo 3D</span>
+                <span class="opt-sub">Personagens, games, formaturas</span>
+              </button>
+              <button class="opt-btn" data-type="decoracao" data-name="Bentô Flork c/ Frase Personalizada">
+                <span class="opt-title">Bentô com Frase</span>
+                <span class="opt-sub">Frase engraçada ou amorosa</span>
+              </button>
+              <button class="opt-btn" data-type="decoracao" data-name="Espatulado Elegante Minimalista">
+                <span class="opt-title">Chantininho Espatulado</span>
+                <span class="opt-sub">Textura ondulada clássica</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Campos extras: Frase/Topo e Data -->
+          <div class="sim-extra-inputs">
+            <div class="input-field">
+              <label for="txtTheme">Tema do Bolo / Nome ou Frase do Topo:</label>
+              <input type="text" id="txtTheme" placeholder="Ex: Aniversário da Júlia 25 anos / Tema Borboletas">
+            </div>
+            <div class="input-field">
+              <label for="txtDate">Data Desejada para Entrega/Retirada:</label>
+              <input type="date" id="txtDate">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Resumo Lateral / Caixa de Pedido -->
+        <aside class="sim-summary-sidebar">
+          <div class="summary-box">
+            <div class="summary-badge">
+              <img src="assets/profile_pic.jpg" alt="Algo do Céu Seal" class="summary-mini-logo">
+              <span>Seu Pedido dos Céus</span>
+            </div>
+
+            <h3 class="summary-title">Resumo da Encomenda</h3>
+
+            <ul class="summary-list">
+              <li>
+                <span class="sum-label">Tamanho:</span>
+                <strong id="sumSize">Aro 15cm (Mini / Bentô)</strong>
+              </li>
+              <li>
+                <span class="sum-label">Rendimento:</span>
+                <strong id="sumFatias">8 a 10 fatias</strong>
+              </li>
+              <li>
+                <span class="sum-label">Massa:</span>
+                <strong id="sumMassa">Baunilha Tradicional</strong>
+              </li>
+              <li>
+                <span class="sum-label">Recheio:</span>
+                <strong id="sumRecheio">Leite Ninho Trufado</strong>
+              </li>
+              <li>
+                <span class="sum-label">Estilo:</span>
+                <strong id="sumDecoracao">Vintage Cherries</strong>
+              </li>
+            </ul>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-price-row">
+              <span class="total-label">Estimativa:</span>
+              <span class="total-price" id="sumPrice">R$ 80,00</span>
+            </div>
+            <p class="summary-note">* Valores finais confirmados conforme topos de papelaria e personalizações especiais no WhatsApp.</p>
+
+            <button id="btnSendCustomOrder" class="btn-whatsapp-submit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.182 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.518-4.482 10-10 10-1.745 0-3.38-.45-4.814-1.238l-7.186 1.884 1.916-6.993c-.886-1.488-1.396-3.23-1.396-5.093 0-5.517 4.482-10 10-10 5.518 0 10 4.483 10 10z"/></svg>
+              <span>Enviar Pedido pelo WhatsApp</span>
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO A CHEF: HISTÓRIA & CONFIANÇA (Maria Eduarda) -->
+  <section class="chef-section" id="chef">
+    <div class="container chef-grid">
+      <div class="chef-image-column">
+        <div class="chef-card-wrapper">
+          <img src="assets/feed/cake_2.jpg" alt="Chef Confeiteira Maria Eduarda (Duda Soares) no Instituto Gourmet" class="chef-photo">
+          <div class="chef-experience-badge">
+            <span class="exp-number">100%</span>
+            <span class="exp-text">Dedicação & Afeto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chef-bio-column">
+        <div class="hero-badge sky-light">
+          <span class="badge-dot sky"></span>
+          <span class="badge-text">Conheça Quem Faz</span>
+        </div>
+
+        <h2 class="chef-title">
+          "Para mim, cada bolo é o centro de uma memória que nunca se apaga."
+        </h2>
+
+        <p class="chef-lead">
+          Olá! Sou a <strong>Maria Eduarda (Duda Soares)</strong>, confeiteira formada profissionalmente pelo <strong>Instituto Gourmet (unidade Ilha do Governador)</strong> e criadora da Algo do Céu desde 2021.
+        </p>
+
+        <p class="chef-text">
+          A confeitaria entrou na minha vida como uma vocação: transformar ingredientes selecionados em momentos de celebração verdadeira. Cada massa é assada fresca, cada recheio é elaborado com paciência e cada decoração em chantininho ou topo personalizado recebe horas de carinho e precisão.
+        </p>
+
+        <p class="chef-verse">
+          <em>"Deem graças em todas as circunstâncias, pois esta é a vontade de Deus para vocês em Cristo Jesus."</em><br>
+          <small>— 1 Tessalonicenses 5:18</small>
+        </p>
+
+        <div class="chef-credentials">
+          <div class="credential-box">
+            <div class="cred-icon">🎓</div>
+            <div>
+              <strong>Formação Profissional</strong>
+              <span>Instituto Gourmet Ilha do Gov.</span>
+            </div>
+          </div>
+
+          <div class="credential-box">
+            <div class="cred-icon">🩵</div>
+            <div>
+              <strong>Mais de 4 Anos</strong>
+              <span>Adoçando famílias no Rio</span>
+            </div>
+          </div>
+
+          <div class="credential-box">
+            <div class="cred-icon">📍</div>
+            <div>
+              <strong>Bonsucesso & Região</strong>
+              <span>Retirada ou entrega combinada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chef-action-row">
+          <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Adorei%20conhecer%20sua%20hist%C3%B3ria%20no%20site!%20Gostaria%20de%20conversar%20sobre%20uma%20encomenda%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="btn-primary pill-btn">
+            <span>Conversar com a Duda</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS / FEEDBACKS REAIS -->
+  <section class="testimonials-section" id="depoimentos">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="sub-heading">Avaliações & Elogios</span>
+        <h2 class="section-heading">Quem Provou, Se Apaixonou 🩵</h2>
+        <p class="section-subtext">Veja o que dizem os clientes que escolheram a Algo do Céu para suas festas e comemorações.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"O bolo estava simplesmente PERFEITO! A massa fofinha, molhada na medida, e o recheio de Leite Ninho com Nutella foi o comentário da festa toda. Ninguém comeu só um pedaço!"</p>
+          <div class="test-author">
+            <div class="author-avatar">J</div>
+            <div class="author-details">
+              <strong>Juliana Ribeiro</strong>
+              <span>Aniversário de 25 anos · Bolo Vintage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card featured-testimonial">
+          <div class="featured-seal">Destaque</div>
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"Encomendei o bolo de 2 andares do Brawl Stars para o meu filho e fiquei chocada com o acabamento! A Duda é extremamente caprichosa, atenciosa e pontual. Já virou a confeiteira oficial da família."</p>
+          <div class="test-author">
+            <div class="author-avatar sky">C</div>
+            <div class="author-details">
+              <strong>Carla Menezes</strong>
+              <span>Festa Infantil · Bonsucesso</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">"A Banoffee na travessa salvou o almoço de domingo da família! Doce de leite maravilhoso, banana fresca e chantilly super leve. Todo mundo pediu o contato!"</p>
+          <div class="test-author">
+            <div class="author-avatar">M</div>
+            <div class="author-details">
+              <strong>Marcelo Santos</strong>
+              <span>Almoço de Domingo · Ilha do Gov.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA / PASSO A PASSO -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="sub-heading">Simples & Prático</span>
+        <h2 class="section-heading">Como Funciona a Sua Encomenda</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card-num">01</div>
+          <h3>Escolha o Modelo</h3>
+          <p>Navegue pelo nosso cardápio ou use o simulador para escolher tamanho, massa, recheio e tema.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-card-num">02</div>
+          <h3>Chame no WhatsApp</h3>
+          <p>A Duda responde pessoalmente para confirmar a data, detalhes de decoração e forma de pagamento.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-card-num">03</div>
+          <h3>Produção Fresquinha</h3>
+          <p>Seu bolo ou doce é preparado artesanalmente na véspera/dia do seu evento com ingredientes nobres.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-card-num">04</div>
+          <h3>Retirada ou Entrega</h3>
+          <p>Retire em Bonsucesso ou receba pelo Uber Flash com embalagem segura e reforçada para transporte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS FREQUENTES (FAQ ACCORDION) -->
+  <section class="faq-section" id="faq">
+    <div class="container faq-layout">
+      <div class="faq-intro">
+        <span class="sub-heading">Dúvidas Frequentes</span>
+        <h2 class="faq-title">Tudo o que você precisa saber antes de encomendar.</h2>
+        <p class="faq-desc">Ficou com alguma dúvida específica? Fale conosco direto pelo WhatsApp!</p>
+        <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Tenho%20uma%20d%C3%BAvida%20sobre%20as%20encomendas%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="btn-primary pill-btn">
+          <span>Tirar Dúvida no WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+
+      <div class="faq-accordion" id="faqAccordion">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Com quanta antecedência devo fazer meu pedido?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Recomendamos uma antecedência mínima de <strong>3 a 5 dias úteis</strong> para bolos personalizados e vintage. Para bolos de 2 andares ou eventos maiores, quanto antes reservar a data na agenda, melhor! Caso precise com urgência, nos chame no WhatsApp para checar a disponibilidade do dia.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Como funciona a entrega e onde fica o ponto de retirada?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Você pode retirar pessoalmente em <strong>Bonsucesso - RJ</strong> (com ponto de referência fácil) ou solicitar envio via <strong>Uber Flash / Carro</strong> (custo por conta do cliente). Todos os bolos vão em caixas reforçadas apropriadas para transporte seguro.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos <strong>Pix (chave direta ou QR Code)</strong> e <strong>Cartão de Crédito e Débito</strong>. Para confirmação da encomenda na agenda, solicitamos um sinal de 50% no momento do pedido e o restante na retirada/envio.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Vocês fazem temas que não estão no site?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Com certeza! Fazemos <strong>qualquer tema ou referência</strong> que você sonhar: casamentos, aniversários infantis, séries, profissões, animes, times de futebol ou fotos de inspiração do Pinterest/Instagram. Basta nos mandar a foto de referência!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL DE IMPACTO -->
+  <section class="final-cta-section">
+    <div class="container cta-card-inner">
+      <div class="cta-glow-circle"></div>
+      <span class="sub-heading white">Adoce Sua Próxima Festa</span>
+      <h2 class="cta-heading">Pronto para transformar sua celebração em um momento inesquecível?</h2>
+      <p class="cta-text">Fale com a Chef Duda Soares, reserve sua data na agenda e garanta um bolo que vai encantar todos os seus convidados.</p>
+      <div class="cta-buttons-group">
+        <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Quero%20fazer%20uma%20encomenda%20com%20voc%C3%AA%20pelo%20site!%20%F0%9F%A9%B5%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn-cta-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.182 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.518-4.482 10-10 10-1.745 0-3.38-.45-4.814-1.238l-7.186 1.884 1.916-6.993c-.886-1.488-1.396-3.23-1.396-5.093 0-5.517 4.482-10 10-10 5.518 0 10 4.483 10 10z"/></svg>
+          <span>Falar Agora no WhatsApp</span>
+        </a>
+        <a href="https://www.instagram.com/algodoceu_/" target="_blank" rel="noopener noreferrer" class="btn-cta-ghost">
+          <span>Ver Mais no Instagram</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo footer-logo">
+          <img src="assets/profile_pic.jpg" alt="Logo Algo do Céu" class="logo-img">
+          <div class="logo-text">
+            <span class="logo-title">Algo do Céu</span>
+            <span class="logo-subtitle">Confeitaria Artesanal</span>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Desde 2021 adoçando momentos no Rio de Janeiro com padrão profissional, receitas de família e amor de verdade. 🩵
+        </p>
+        <p class="footer-chef-badge">
+          Chef Responsável: <strong>Maria Eduarda (Duda Soares)</strong><br>
+          Formada pelo Instituto Gourmet
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#cardapio">Cardápio de Bolos</a></li>
+          <li><a href="#simulador">Monte seu Bolo</a></li>
+          <li><a href="#chef">História da Chef</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">Dúvidas Frequentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Especialidades</h4>
+        <ul class="footer-links">
+          <li><a href="#cardapio">Vintage Cherries Cake</a></li>
+          <li><a href="#cardapio">Bolo Borboleta 3D</a></li>
+          <li><a href="#cardapio">Bentô Cakes Flork</a></li>
+          <li><a href="#cardapio">Banoffee na Travessa</a></li>
+          <li><a href="#cardapio">Bolos Infantis de 2 Andares</a></li>
+          <li><a href="#cardapio">Docinhos Gourmet Belgas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">Atendimento & Local</h4>
+        <ul class="footer-contact">
+          <li>
+            <strong>WhatsApp Oficial:</strong>
+            <a href="https://wa.me/5521966495123" target="_blank" rel="noopener noreferrer">(21) 96649-5123</a>
+          </li>
+          <li>
+            <strong>Instagram:</strong>
+            <a href="https://www.instagram.com/algodoceu_/" target="_blank" rel="noopener noreferrer">@algodoceu_</a>
+          </li>
+          <li>
+            <strong>Localização:</strong>
+            <span>Bonsucesso · Rio de Janeiro - RJ</span>
+          </li>
+          <li>
+            <strong>Horário de Encomendas:</strong>
+            <span>Seg a Sáb: 09:00 às 19:00</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Algo do Céu Confeitaria Artesanal · Todos os direitos reservados.</p>
+        <p>Desenvolvido com amor para <strong>Duda Soares</strong> 🩵🍰</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Vim%20pelo%20site%20da%20Algo%20do%20C%C3%A9u%20e%20gostaria%20de%20fazer%20uma%20encomenda!%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Falar no WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.182 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.518-4.482 10-10 10-1.745 0-3.38-.45-4.814-1.238l-7.186 1.884 1.916-6.993c-.886-1.488-1.396-3.23-1.396-5.093 0-5.517 4.482-10 10-10 5.518 0 10 4.483 10 10z"/></svg>
+    <span class="float-tooltip">Pedir no WhatsApp 🩵</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
