@@ -68,6 +68,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightbox = document.getElementById('closeLightbox');
 
   document.addEventListener('click', (e) => {
+    // 1) Clique em Card de Feedback Real
+    const feedbackCard = e.target.closest('.feedback-card');
+    if (feedbackCard) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const img = feedbackCard.dataset.img;
+      const title = feedbackCard.dataset.title || 'Depoimento de Cliente';
+      const desc = feedbackCard.dataset.desc || '';
+
+      if (lightboxImg) {
+        lightboxImg.src = img;
+        lightboxImg.alt = title;
+      }
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (lightboxDesc) lightboxDesc.textContent = `"${desc}"`;
+      if (lightboxServes) lightboxServes.textContent = 'Feedback 100% Real de Cliente';
+
+      if (lightboxOrderBtn) {
+        const orderMsg = encodeURIComponent(`Olá Duda! Vi os depoimentos e bolos no site da Algo do Céu e gostaria de encomendar para a minha festa! 🩵🍰`);
+        lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
+      }
+
+      if (lightbox) {
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+      return;
+    }
+
+    // 2) Clique em Lupa de Modelo de Bolo
     const zoomBtn = e.target.closest('.zoom-btn');
     if (!zoomBtn) return;
 
@@ -77,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = zoomBtn.dataset.img;
     const title = zoomBtn.dataset.title;
     const desc = zoomBtn.dataset.desc;
-    const serves = zoomBtn.dataset.serves || 'Sob medida';
+    const serves = zoomBtn.dataset.serves || 'Personalizado sob medida';
 
     if (lightboxImg) {
       lightboxImg.src = img;
