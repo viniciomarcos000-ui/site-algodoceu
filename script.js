@@ -1,25 +1,25 @@
 // ==========================================================================
 // ALGO DO CÉU · CONFEITARIA ARTESANAL (POR DUDA SOARES)
-// Interações: Filtro de Cardápio, Simulador de Bolos & WhatsApp Direct
+// Interações: Filtros de Criações, Lightbox de Fotos, Acordeão FAQ & WhatsApp
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Número oficial de WhatsApp da Duda Soares
   const WHATSAPP_PHONE = '5521966495123';
 
   // 1. Efeito de Scroll no Navbar
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
   });
 
-  // 2. Menu Mobile Toggle
+  // 2. Menu Mobile Drawer
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
+
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
       navMenu.classList.toggle('open');
@@ -47,32 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Filtro de Categorias no Cardápio
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const productCards = document.querySelectorAll('.product-card');
+  // 3. Filtros do Cardápio / Vitrine
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const cakeCards = document.querySelectorAll('.cake-item-card');
 
-  function filterCategory(category) {
+  function filterCakes(category) {
     // Atualiza botões
-    tabButtons.forEach(btn => {
-      if (btn.dataset.target === category) {
-        btn.classList.add('active');
+    filterPills.forEach(pill => {
+      if (pill.dataset.target === category) {
+        pill.classList.add('active');
       } else {
-        btn.classList.remove('active');
+        pill.classList.remove('active');
       }
     });
 
-    // Filtra cards com animação suave
-    productCards.forEach(card => {
+    // Filtra cards com transição suave
+    cakeCards.forEach(card => {
       const cardCat = card.dataset.category;
       if (category === 'all' || cardCat === category) {
         card.style.display = 'flex';
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
-        }, 30);
+        }, 20);
       } else {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(15px)';
+        card.style.transform = 'translateY(12px)';
         setTimeout(() => {
           card.style.display = 'none';
         }, 200);
@@ -80,138 +80,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.target;
-      filterCategory(target);
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterCakes(pill.dataset.target);
     });
   });
 
-  // 4. Integração das bolinhas de Stories / Destaques com os filtros
-  const highlightItems = document.querySelectorAll('.highlight-item');
-  highlightItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      const filter = item.dataset.filter;
-      if (filter) {
-        filterCategory(filter);
+  // Integração com os Destaques (Stories)
+  const highlightCards = document.querySelectorAll('.highlight-card');
+  highlightCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetFilter = card.dataset.filter;
+      if (targetFilter) {
+        filterCakes(targetFilter);
       }
     });
   });
 
-  // 5. SIMULADOR DE BOLO INTERATIVO
-  const simState = {
-    size: 'Aro 15cm (Mini / Bentô)',
-    fatias: '8 a 10 fatias',
-    basePrice: 80,
-    massa: 'Baunilha Tradicional',
-    recheio: 'Leite Ninho Trufado',
-    extraRecheio: 0,
-    decoracao: 'Vintage Pinterest (Babadinhos & Cerejas)'
-  };
+  // 4. Modal Lightbox para Detalhes e Fotos dos Bolos (Sem Preços)
+  const lightbox = document.getElementById('cakeLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxDesc = document.getElementById('lightboxDesc');
+  const lightboxServes = document.getElementById('lightboxServes');
+  const lightboxOrderBtn = document.getElementById('lightboxOrderBtn');
+  const closeLightbox = document.getElementById('closeLightbox');
 
-  function updateSummary() {
-    document.getElementById('sumSize').textContent = simState.size;
-    document.getElementById('sumFatias').textContent = simState.fatias;
-    document.getElementById('sumMassa').textContent = simState.massa;
-    document.getElementById('sumRecheio').textContent = simState.recheio;
-    document.getElementById('sumDecoracao').textContent = simState.decoracao;
+  document.querySelectorAll('.zoom-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const img = btn.dataset.img;
+      const title = btn.dataset.title;
+      const desc = btn.dataset.desc;
+      const serves = btn.dataset.serves || 'Sob medida';
 
-    const total = simState.basePrice + simState.extraRecheio;
-    document.getElementById('sumPrice').textContent = `R$ ${total},00`;
-  }
+      if (lightboxImg) {
+        lightboxImg.src = img;
+        lightboxImg.alt = title;
+      }
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (lightboxDesc) lightboxDesc.textContent = desc;
+      if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
 
-  // Listener para botões do simulador
-  function bindSimOptionGroup(containerId, stateKey, callback) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    const buttons = container.querySelectorAll('.opt-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if (callback) {
-          callback(btn);
-        }
-        updateSummary();
-      });
-    });
-  }
-
-  // Passo 1: Tamanho
-  bindSimOptionGroup('optSize', 'size', (btn) => {
-    simState.size = btn.dataset.name;
-    simState.fatias = btn.dataset.fatias;
-    simState.basePrice = parseInt(btn.dataset.price, 10) || 80;
-  });
-
-  // Passo 2: Massa
-  bindSimOptionGroup('optMassa', 'massa', (btn) => {
-    simState.massa = btn.dataset.name;
-  });
-
-  // Passo 3: Recheio
-  bindSimOptionGroup('optRecheio', 'recheio', (btn) => {
-    simState.recheio = btn.dataset.name;
-    simState.extraRecheio = parseInt(btn.dataset.extra, 10) || 0;
-  });
-
-  // Passo 4: Decoração
-  bindSimOptionGroup('optDecoracao', 'decoracao', (btn) => {
-    simState.decoracao = btn.dataset.name;
-  });
-
-  // Botão Enviar Pedido pelo WhatsApp
-  const btnSendCustomOrder = document.getElementById('btnSendCustomOrder');
-  if (btnSendCustomOrder) {
-    btnSendCustomOrder.addEventListener('click', () => {
-      const themeInput = document.getElementById('txtTheme').value.trim();
-      const dateInput = document.getElementById('txtDate').value.trim();
-      
-      let dateFormatted = 'A combinar';
-      if (dateInput) {
-        const parts = dateInput.split('-');
-        if (parts.length === 3) {
-          dateFormatted = `${parts[2]}/${parts[1]}/${parts[0]}`;
-        }
+      if (lightboxOrderBtn) {
+        const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
+        lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
       }
 
-      const total = simState.basePrice + simState.extraRecheio;
+      if (lightbox) {
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
 
-      const message = 
-`🎂 *NOVA ENCOMENDA PERSONALIZADA · ALGO DO CÉU* 🎂
-
-Olá, Chef Duda! Montei o meu bolo pelo simulador do site e gostaria de confirmar disponibilidade e detalhes:
-
-🍰 *Tamanho:* ${simState.size} (${simState.fatias})
-🌾 *Massa:* ${simState.massa}
-🍫 *Recheio:* ${simState.recheio}
-✨ *Estilo da Decoração:* ${simState.decoracao}
-${themeInput ? `🎨 *Tema / Topo / Frase:* ${themeInput}
-` : ''}📅 *Data Desejada:* ${dateFormatted}
-💰 *Valor Estimado:* R$ ${total},00
-
-Como podemos prosseguir com o pagamento e horário para o meu evento? 🩵`;
-
-      const encodedMsg = encodeURIComponent(message);
-      const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`;
-      window.open(url, '_blank');
+  if (closeLightbox) {
+    closeLightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
     });
   }
 
-  // 6. Accordion do FAQ
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  // 5. Acordeão do FAQ
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(other => other.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
+    const questionBtn = item.querySelector('.faq-question-btn');
+    if (questionBtn) {
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(other => other.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
   });
-
-  // Inicializa o resumo do simulador
-  updateSummary();
 });
