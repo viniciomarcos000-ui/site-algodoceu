@@ -1,6 +1,6 @@
 // ==========================================================================
 // ALGO DO CÉU · CONFEITARIA ARTESANAL (POR DUDA SOARES)
-// Interações: Filtros de Criações, Lightbox de Fotos, Acordeão FAQ & WhatsApp
+// Interações: Carrossel Infinito, Lightbox de Fotos, Acordeão FAQ & WhatsApp
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Efeito de Scroll no Navbar
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
@@ -47,57 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Filtros do Cardápio / Vitrine
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const cakeCards = document.querySelectorAll('.cake-item-card');
-
-  function filterCakes(category) {
-    // Atualiza botões
-    filterPills.forEach(pill => {
-      if (pill.dataset.target === category) {
-        pill.classList.add('active');
-      } else {
-        pill.classList.remove('active');
-      }
-    });
-
-    // Filtra cards com transição suave
-    cakeCards.forEach(card => {
-      const cardCat = card.dataset.category;
-      if (category === 'all' || cardCat === category) {
-        card.style.display = 'flex';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 20);
-      } else {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(12px)';
-        setTimeout(() => {
-          card.style.display = 'none';
-        }, 200);
-      }
+  // 3. Duplicação de Cards para o Carrossel Marquee Infinito Sem Costuras
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  if (marqueeTrack) {
+    const cards = Array.from(marqueeTrack.children);
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      marqueeTrack.appendChild(clone);
     });
   }
 
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterCakes(pill.dataset.target);
-    });
-  });
-
-  // Integração com os Destaques (Stories)
-  const highlightCards = document.querySelectorAll('.highlight-card');
-  highlightCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const targetFilter = card.dataset.filter;
-      if (targetFilter) {
-        filterCakes(targetFilter);
-      }
-    });
-  });
-
-  // 4. Modal Lightbox para Detalhes e Fotos dos Bolos (Sem Preços)
+  // 4. Modal Lightbox para Fotos Ampliadas (Sem Preços)
   const lightbox = document.getElementById('cakeLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxTitle = document.getElementById('lightboxTitle');
@@ -106,44 +67,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxOrderBtn = document.getElementById('lightboxOrderBtn');
   const closeLightbox = document.getElementById('closeLightbox');
 
-  document.querySelectorAll('.zoom-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const img = btn.dataset.img;
-      const title = btn.dataset.title;
-      const desc = btn.dataset.desc;
-      const serves = btn.dataset.serves || 'Sob medida';
+  document.addEventListener('click', (e) => {
+    const zoomBtn = e.target.closest('.zoom-btn');
+    if (!zoomBtn) return;
 
-      if (lightboxImg) {
-        lightboxImg.src = img;
-        lightboxImg.alt = title;
-      }
-      if (lightboxTitle) lightboxTitle.textContent = title;
-      if (lightboxDesc) lightboxDesc.textContent = desc;
-      if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
+    e.preventDefault();
+    e.stopPropagation();
 
-      if (lightboxOrderBtn) {
-        const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
-        lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
-      }
+    const img = zoomBtn.dataset.img;
+    const title = zoomBtn.dataset.title;
+    const desc = zoomBtn.dataset.desc;
+    const serves = zoomBtn.dataset.serves || 'Sob medida';
 
-      if (lightbox) {
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-      }
-    });
+    if (lightboxImg) {
+      lightboxImg.src = img;
+      lightboxImg.alt = title;
+    }
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxDesc) lightboxDesc.textContent = desc;
+    if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
+
+    if (lightboxOrderBtn) {
+      const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
+      lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
+    }
+
+    if (lightbox) {
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
   });
 
-  if (closeLightbox) {
+  if (closeLightbox && lightbox) {
     closeLightbox.addEventListener('click', () => {
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
     });
-  }
 
-  if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
       }
