@@ -69,6 +69,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -77,7 +80,16 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
+}
+
+/* Offset suave para navegação com Header Sticky */
+section[id],
+header[id],
+footer[id] {
+  scroll-margin-top: 90px;
 }
 
 img {
@@ -130,6 +142,7 @@ button {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-delicate);
   transition: var(--transition);
+  width: 100%;
 }
 
 .site-header.scrolled {
@@ -141,20 +154,24 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  gap: 20px;
+  height: 76px;
+  gap: 16px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .brand-emblem-logo {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -170,7 +187,7 @@ button {
 
 .brand-name {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--text-cocoa);
   line-height: 1.1;
   font-weight: 700;
@@ -178,7 +195,7 @@ button {
 }
 
 .brand-subtitle {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: var(--sky-dark);
   letter-spacing: 0.08em;
@@ -189,22 +206,23 @@ button {
 .nav-links-wrapper {
   display: flex;
   flex-shrink: 1;
+  justify-content: center;
 }
 
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 14px;
   align-items: center;
   white-space: nowrap;
 }
 
 .nav-item {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-body);
   position: relative;
-  padding: 6px 0;
+  padding: 6px 2px;
   white-space: nowrap;
 }
 
@@ -227,19 +245,19 @@ button {
 .nav-right-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .instagram-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--border-delicate);
-  padding: 8px 14px;
+  padding: 7px 12px;
   border-radius: var(--radius-pill);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-cocoa);
   white-space: nowrap;
@@ -255,13 +273,13 @@ button {
 .header-order-btn {
   background: var(--sky-primary);
   color: #FFFFFF;
-  padding: 9px 18px;
+  padding: 8px 15px;
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   box-shadow: 0 4px 12px rgba(110, 158, 186, 0.3);
   white-space: nowrap;
 }
@@ -630,9 +648,12 @@ button {
 .marquee-showcase-container {
   position: relative;
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
   padding: 30px 0 40px;
   margin: 10px 0 20px;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
 }
 
 /* Efeito de Blur Desativado a pedido do Marcos */
@@ -850,89 +871,6 @@ button {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   BANNER ARTESANAL: MESA DE DOCES
-   ========================================================================== */
-.artisan-banner-section {
-  padding: 70px 0;
-  background: var(--bg-cream-pure);
-  border-top: 1px solid var(--border-delicate);
-}
-
-.artisan-banner-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.artisan-banner-img {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-
-.artisan-banner-img img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-.floating-sticker {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: var(--berry-rose);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.artisan-banner-headline {
-  font-family: var(--font-serif);
-  font-size: 2.3rem;
-  color: var(--text-cocoa);
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.artisan-banner-desc {
-  font-size: 1rem;
-  color: var(--text-body);
-  margin-bottom: 24px;
-}
-
-.banner-features-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.banner-feat-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 600;
-  color: var(--text-cocoa);
-}
-
-.feat-check {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--sky-soft);
-  color: var(--sky-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
 
 /* ==========================================================================
    SEÇÃO: COMO ENCOMENDAR (LINHA DO TEMPO CONECTADA)
@@ -1268,9 +1206,12 @@ button {
 .prints-marquee-container {
   position: relative;
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
   padding: 25px 0 35px;
   margin: 15px 0 25px;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
 }
 
 .prints-marquee-track {
@@ -1289,7 +1230,8 @@ button {
 
 .print-slide-item {
   flex-shrink: 0;
-  height: 440px;
+  height: 380px;
+  max-width: 320px;
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1309,6 +1251,7 @@ button {
 .print-slide-item img {
   height: 100%;
   width: auto;
+  max-width: 100%;
   display: block;
   object-fit: contain;
 }

@@ -8,7 +8,10 @@ def run_tests():
         {"name": "iPhone_SE_375", "width": 375, "height": 667},
         {"name": "iPhone_14_15_390", "width": 390, "height": 844},
         {"name": "iPhone_ProMax_430", "width": 430, "height": 932},
-        {"name": "iPad_Mini_768", "width": 768, "height": 1024}
+        {"name": "iPad_Mini_768", "width": 768, "height": 1024},
+        {"name": "Desktop_MacBook_1280", "width": 1280, "height": 800},
+        {"name": "Desktop_FullHD_1440", "width": 1440, "height": 900},
+        {"name": "Desktop_Large_1920", "width": 1920, "height": 1080}
     ]
 
     screenshots_dir = "/Users/marcossvini/.gemini/antigravity-cli/brain/ce40d96a-4c6c-4782-a4c9-4d73a018d27d/scratch/mobile_tests"
