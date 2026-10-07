@@ -16,38 +16,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Menu Mobile Drawer
+  // 2. Menu Mobile Drawer com Backdrop e Bloqueio de Scroll
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  const closeMenu = () => {
+    if (!navMenu) return;
+    navMenu.classList.remove('open');
+    if (navBackdrop) navBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+    if (mobileToggle) {
+      const spans = mobileToggle.querySelectorAll('span');
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+    }
+  };
+
+  const openMenu = () => {
+    if (!navMenu) return;
+    navMenu.classList.add('open');
+    if (navBackdrop) navBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (mobileToggle) {
+      const spans = mobileToggle.querySelectorAll('span');
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    }
+  };
 
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const spans = mobileToggle.querySelectorAll('span');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (navMenu.classList.contains('open')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        closeMenu();
       } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        openMenu();
       }
     });
 
-    // Fechar ao clicar em um link
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMenu);
+    }
+
+    // Fechar ao clicar em qualquer link da gaveta
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        const spans = mobileToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 
-  // 3. Duplicação de Cards para o Carrossel Marquee Infinito Sem Costuras
+  // 3. Duplicação de Cards para o Carrossel Marquee Infinito & Pausa por Toque
   const marqueeTrack = document.getElementById('marqueeTrack');
   if (marqueeTrack) {
     const cards = Array.from(marqueeTrack.children);
@@ -56,6 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
       clone.setAttribute('aria-hidden', 'true');
       marqueeTrack.appendChild(clone);
     });
+
+    // Pausar ao tocar no celular para facilitar visualização
+    marqueeTrack.addEventListener('touchstart', () => {
+      marqueeTrack.style.animationPlayState = 'paused';
+    }, { passive: true });
+
+    marqueeTrack.addEventListener('touchend', () => {
+      setTimeout(() => {
+        marqueeTrack.style.animationPlayState = 'running';
+      }, 1500);
+    }, { passive: true });
   }
 
   // 4. Modal Lightbox para Fotos Ampliadas (Sem Preços)
@@ -98,34 +129,37 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 2) Clique em Lupa de Modelo de Bolo
-    const zoomBtn = e.target.closest('.zoom-btn');
-    if (!zoomBtn) return;
+    // 2) Clique na Lupa OU no Card de Bolo (exceto botão de WhatsApp)
+    const cakeCard = e.target.closest('.cake-slide-card');
+    if (cakeCard && !e.target.closest('.btn-order-whatsapp')) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    e.preventDefault();
-    e.stopPropagation();
+      const zoomBtn = cakeCard.querySelector('.zoom-btn');
+      if (!zoomBtn) return;
 
-    const img = zoomBtn.dataset.img;
-    const title = zoomBtn.dataset.title;
-    const desc = zoomBtn.dataset.desc;
-    const serves = zoomBtn.dataset.serves || 'Personalizado sob medida';
+      const img = zoomBtn.dataset.img;
+      const title = zoomBtn.dataset.title;
+      const desc = zoomBtn.dataset.desc;
+      const serves = zoomBtn.dataset.serves || 'Personalizado sob medida';
 
-    if (lightboxImg) {
-      lightboxImg.src = img;
-      lightboxImg.alt = title;
-    }
-    if (lightboxTitle) lightboxTitle.textContent = title;
-    if (lightboxDesc) lightboxDesc.textContent = desc;
-    if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
+      if (lightboxImg) {
+        lightboxImg.src = img;
+        lightboxImg.alt = title;
+      }
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (lightboxDesc) lightboxDesc.textContent = desc;
+      if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
 
-    if (lightboxOrderBtn) {
-      const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
-      lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
-    }
+      if (lightboxOrderBtn) {
+        const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
+        lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
+      }
 
-    if (lightbox) {
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
+      if (lightbox) {
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
     }
   });
 

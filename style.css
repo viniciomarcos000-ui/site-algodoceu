@@ -271,6 +271,27 @@ button {
   transform: translateY(-1px);
 }
 
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 24, 28, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-mobile-actions {
+  display: none;
+}
+
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -1781,19 +1802,77 @@ button {
 }
 
 @media (max-width: 768px) {
+  /* Header Compacto e Sem Vazamentos */
+  .nav-container {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .brand-name {
+    font-size: 1.18rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .brand-emblem-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-right-actions {
+    gap: 8px;
+  }
+
+  .instagram-pill {
+    display: none;
+  }
+
+  .header-order-btn {
+    padding: 8px;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sky-primary);
+    box-shadow: 0 4px 10px rgba(110, 158, 186, 0.3);
+  }
+
+  .header-order-btn .header-btn-text {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Gaveta de Navegação Mobile */
   .nav-links-wrapper {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 70px);
     background: #FFFFFF;
     flex-direction: column;
-    padding: 30px 24px;
+    padding: 24px 20px 32px;
     border-bottom: 1px solid var(--border-delicate);
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 16px 36px rgba(42, 24, 28, 0.12);
     transform: translateY(-120%);
-    transition: transform 0.3s ease;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links-wrapper.open {
@@ -1802,37 +1881,137 @@ button {
 
   .nav-list {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: stretch;
+    gap: 0;
     width: 100%;
   }
 
-  .mobile-menu-btn {
+  .nav-item {
+    display: block;
+    width: 100%;
+    padding: 13px 4px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-delicate);
+  }
+
+  .drawer-mobile-actions {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 6px;
   }
 
-  .instagram-pill {
-    display: none;
+  .drawer-wa-btn {
+    background: var(--wa-green);
+    color: #FFFFFF;
+    padding: 13px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
   }
 
+  .drawer-ig-btn {
+    background: #FAF6F0;
+    border: 1px solid var(--border-delicate);
+    color: var(--text-cocoa);
+    padding: 12px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Especialidades / Stories com Rolagem Suave */
+  .highlights-scroll-track {
+    justify-content: flex-start;
+    padding: 10px 16px 20px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .highlight-card {
+    scroll-snap-align: start;
+    min-width: 105px;
+  }
+
+  .highlight-circle {
+    width: 82px;
+    height: 82px;
+  }
+
+  /* Hero Mobile */
   .hero-title {
-    font-size: 2.3rem;
+    font-size: 2.25rem;
   }
 
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta-group .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Vitrine & Cards */
   .cake-slide-card {
-    width: 290px;
+    width: 280px;
   }
 
+  .cake-card-img-wrap {
+    height: 250px;
+  }
+
+  /* Passo a Passo */
   .order-steps-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
+  .order-step-item {
+    padding: 22px 18px;
+  }
+
+  /* Feedbacks / Provas Sociais */
   .feedbacks-cards-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feedback-card {
+    padding: 18px;
   }
 
   .chef-photo-real {
     height: 340px;
+  }
+
+  /* Lightbox Responsivo */
+  .lightbox-overlay {
+    padding: 12px;
+  }
+
+  .lightbox-modal {
+    max-height: 88vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md);
   }
 
   .lightbox-body {
@@ -1840,7 +2019,42 @@ button {
   }
 
   .lightbox-img-box {
-    height: 260px;
+    height: auto;
+    max-height: 48vh;
+    background: #1C1215;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-img-box img {
+    width: 100%;
+    height: 100%;
+    max-height: 48vh;
+    object-fit: contain;
+  }
+
+  .lightbox-info-box {
+    padding: 20px 18px 24px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Botão Flutuante do WhatsApp */
+  .whatsapp-floating-bubble {
+    width: 56px;
+    height: 56px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .bubble-tooltip {
+    display: none !important;
   }
 
   .footer-copyright-row {
