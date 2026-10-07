@@ -90,17 +90,26 @@ def run_tests():
             lb_closed = not lightbox.evaluate("el => el.classList.contains('active')")
             print(f"✅ Lightbox fechado com sucesso: {lb_closed}")
 
-            # 4. Teste de Toque em Card de Feedback -> Abre Lightbox sem cortes
+            # 4. Teste de Toque em Print Real de Cliente -> Abre Lightbox
             page.locator('#depoimentos').scroll_into_view_if_needed()
             page.wait_for_timeout(300)
-            page.evaluate("() => document.querySelector('.feedback-card').click()")
+            prints_count = page.evaluate("() => document.querySelectorAll('#printsTrack .print-slide-item').length")
+            print(f"✅ Prints no Carrossel Animado (com clones de loop contínuo): {prints_count}")
+
+            page.evaluate("() => document.querySelector('.print-slide-item').click()")
             page.wait_for_timeout(400)
-            lb_active_feed = lightbox.evaluate("el => el.classList.contains('active')")
-            page.screenshot(path=f"{screenshots_dir}/{vp['name']}_lightbox_feedback.png")
-            print(f"✅ Toque no card de feedback abriu Lightbox: {lb_active_feed}")
+            lb_active_print = lightbox.evaluate("el => el.classList.contains('active')")
+            page.screenshot(path=f"{screenshots_dir}/{vp['name']}_lightbox_print.png")
+            print(f"✅ Toque no print real abriu Lightbox: {lb_active_print}")
 
             close_btn.click()
             page.wait_for_timeout(300)
+
+            # 5. Teste do Novo Rodapé Boutique
+            footer = page.locator('.site-footer')
+            footer.scroll_into_view_if_needed()
+            cards_count = page.evaluate("() => document.querySelectorAll('.footer-contact-card').length")
+            print(f"✅ Cards de Contato no Rodapé: {cards_count}")
 
             # 5. Screenshot da página completa
             page.screenshot(path=f"{screenshots_dir}/{vp['name']}_full_page.png", full_page=True)

@@ -67,27 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Duplicação de Cards para o Carrossel Marquee Infinito & Pausa por Toque
-  const marqueeTrack = document.getElementById('marqueeTrack');
-  if (marqueeTrack) {
-    const cards = Array.from(marqueeTrack.children);
-    cards.forEach(card => {
-      const clone = card.cloneNode(true);
+  // 3. Duplicação de Cards para os Carrosséis Marquee Infinitos & Pausa por Toque
+  const setupMarqueeTrack = (trackId) => {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const items = Array.from(track.children);
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
-      marqueeTrack.appendChild(clone);
+      track.appendChild(clone);
     });
 
     // Pausar ao tocar no celular para facilitar visualização
-    marqueeTrack.addEventListener('touchstart', () => {
-      marqueeTrack.style.animationPlayState = 'paused';
+    track.addEventListener('touchstart', () => {
+      track.style.animationPlayState = 'paused';
     }, { passive: true });
 
-    marqueeTrack.addEventListener('touchend', () => {
+    track.addEventListener('touchend', () => {
       setTimeout(() => {
-        marqueeTrack.style.animationPlayState = 'running';
+        track.style.animationPlayState = 'running';
       }, 1500);
     }, { passive: true });
-  }
+  };
+
+  setupMarqueeTrack('marqueeTrack');
+  setupMarqueeTrack('printsTrack');
 
   // 4. Modal Lightbox para Fotos Ampliadas (Sem Preços)
   const lightbox = document.getElementById('cakeLightbox');
@@ -99,15 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightbox = document.getElementById('closeLightbox');
 
   document.addEventListener('click', (e) => {
-    // 1) Clique em Card de Feedback Real
-    const feedbackCard = e.target.closest('.feedback-card');
-    if (feedbackCard) {
+    // 1) Clique em Item de Print Real OU Card de Feedback
+    const printItem = e.target.closest('.print-slide-item') || e.target.closest('.feedback-card');
+    if (printItem) {
       e.preventDefault();
       e.stopPropagation();
 
-      const img = feedbackCard.dataset.img;
-      const title = feedbackCard.dataset.title || 'Depoimento de Cliente';
-      const desc = feedbackCard.dataset.desc || '';
+      const img = printItem.dataset.img || printItem.querySelector('img')?.src;
+      const title = printItem.dataset.title || 'Depoimento Real de Cliente';
+      const desc = printItem.dataset.desc || 'Mensagem enviada espontaneamente por clientes da Confeitaria Algo do Céu.';
 
       if (lightboxImg) {
         lightboxImg.src = img;
@@ -115,10 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (lightboxTitle) lightboxTitle.textContent = title;
       if (lightboxDesc) lightboxDesc.textContent = `"${desc}"`;
-      if (lightboxServes) lightboxServes.textContent = 'Feedback 100% Real de Cliente';
+      if (lightboxServes) lightboxServes.textContent = 'Feedback 100% Real no WhatsApp / Instagram';
 
       if (lightboxOrderBtn) {
-        const orderMsg = encodeURIComponent(`Olá Duda! Vi os depoimentos e bolos no site da Algo do Céu e gostaria de encomendar para a minha festa! 🩵🍰`);
+        const orderMsg = encodeURIComponent(`Olá Duda! Vi os depoimentos e prints reais no site da Algo do Céu e gostaria de encomendar para a minha festa! 🩵🍰`);
         lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
       }
 

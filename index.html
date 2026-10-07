@@ -37,14 +37,21 @@
       </a>
 
       <nav class="nav-links-wrapper" id="navMenu">
+        <div class="drawer-header-brand">
+          <img src="assets/logo.png" alt="Algo do Céu" class="drawer-logo-img">
+          <div>
+            <span class="drawer-brand-name">Algo do Céu</span>
+            <span class="drawer-brand-sub">Confeitaria Artesanal</span>
+          </div>
+        </div>
         <ul class="nav-list">
-          <li><a href="#inicio" class="nav-item active">Início</a></li>
-          <li><a href="#destaques" class="nav-item">Especialidades</a></li>
-          <li><a href="#cardapio" class="nav-item">Vitrine de Bolos</a></li>
-          <li><a href="#encomenda" class="nav-item">Como Encomendar</a></li>
-          <li><a href="#chef" class="nav-item">A Chef</a></li>
-          <li><a href="#depoimentos" class="nav-item">Provas Reais</a></li>
-          <li><a href="#faq" class="nav-item">Dúvidas</a></li>
+          <li><a href="#inicio" class="nav-item active"><span class="nav-num">01</span><span>Início</span></a></li>
+          <li><a href="#destaques" class="nav-item"><span class="nav-num">02</span><span>Especialidades</span></a></li>
+          <li><a href="#cardapio" class="nav-item"><span class="nav-num">03</span><span>Vitrine de Bolos</span></a></li>
+          <li><a href="#encomenda" class="nav-item"><span class="nav-num">04</span><span>Como Encomendar</span></a></li>
+          <li><a href="#chef" class="nav-item"><span class="nav-num">05</span><span>A Chef Duda Soares</span></a></li>
+          <li><a href="#depoimentos" class="nav-item"><span class="nav-num">06</span><span>Provas Reais & Prints</span></a></li>
+          <li><a href="#faq" class="nav-item"><span class="nav-num">07</span><span>Dúvidas Frequentes</span></a></li>
         </ul>
         <div class="drawer-mobile-actions">
           <a href="https://wa.me/5521966495123?text=Ol%C3%A1%20Duda!%20Vim%20pelo%20site%20da%20Algo%20do%20C%C3%A9u%20e%20gostaria%20de%20fazer%20uma%20encomenda%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="cta-button drawer-wa-btn">
@@ -559,121 +566,53 @@
         <p class="section-description">Prints e mensagens reais enviadas para a Chef Duda Soares no WhatsApp e Instagram. Clique em qualquer print para ver ampliado!</p>
       </div>
 
-      <!-- Grid com Múltiplos Cards de Prova Social Real -->
-      <div class="feedbacks-cards-grid">
+      <!-- Carrossel Animado Contínuo de Prints Reais Sem Cards Artificiais -->
+      <div class="prints-marquee-container">
+        <div class="prints-marquee-track" id="printsTrack">
 
-        <!-- Card 1 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_1.png" data-title="Feedback no WhatsApp · Festinha do Filho" data-desc="Seu bolo estava incrível! Perfeito tanto de aparência quanto de sabor! Mto obrigada por ter tornado a festinha do meu filho mais linda e saborosa!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge wa">WhatsApp</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 1 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_1.png" data-title="Feedback no WhatsApp · Festinha do Filho" data-desc="Seu bolo estava incrível! Perfeito tanto de aparência quanto de sabor!">
             <img src="assets/feedbacks/feedback_1.png" alt="Print de feedback no WhatsApp: bolo incrível e perfeito" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Seu bolo estava incrível! Perfeito tanto de aparência quanto de sabor!"</p>
-            <span class="feedback-author">Mamãe do Miguel · Festa Infantil</span>
-          </div>
-        </article>
 
-        <!-- Card 2 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_2.png" data-title="Feedback no WhatsApp · Miguelzinho e Tia Duda" data-desc="Já é para sempre! Nas festas dele tem salgadinho da tia Mi e bolo da tia Duda!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge wa">WhatsApp</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 2 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_2.png" data-title="Feedback no WhatsApp · Miguelzinho e Tia Duda" data-desc="Já é para sempre! Nas festas dele tem bolo da tia Duda!">
             <img src="assets/feedbacks/feedback_2.png" alt="Print de feedback no WhatsApp: foto do aniversariante e bolo da tia Duda" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Já é para sempre! Nas festas dele tem bolo da tia Duda!"</p>
-            <span class="feedback-author">Mamãe do Miguelzinho · Aniversário</span>
-          </div>
-        </article>
 
-        <!-- Card 3 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_3.png" data-title="Feedback no WhatsApp · Massa e Recheio" data-desc="O bolo está uma delícia, massa molhadinha e recheio delicioso, muito gostoso!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge wa">WhatsApp</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 3 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_3.png" data-title="Feedback no WhatsApp · Massa e Recheio" data-desc="O bolo está uma delícia, massa molhadinha e recheio delicioso!">
             <img src="assets/feedbacks/feedback_3.png" alt="Print de feedback no WhatsApp: massa molhadinha e recheio delicioso" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"O bolo está uma delícia, massa molhadinha e recheio delicioso!"</p>
-            <span class="feedback-author">Cliente Algo do Céu · Aniversário</span>
-          </div>
-        </article>
 
-        <!-- Card 4 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_4.png" data-title="Feedback no Instagram · Pequeno Miguel" data-desc="Cada detalhe, um toque de amor! Fará sempre agora nos próximos aniversários do meu pequeno!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge ig">Instagram</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 4 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_4.png" data-title="Feedback no Instagram · Pequeno Miguel" data-desc="Cada detalhe, um toque de amor! Fará sempre agora!">
             <img src="assets/feedbacks/feedback_4.png" alt="Print de feedback no Instagram: cada detalhe um toque de amor" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Cada detalhe, um toque de amor! Fará sempre agora!"</p>
-            <span class="feedback-author">Bolo Pequeno Miguel · 3 Anos</span>
-          </div>
-        </article>
 
-        <!-- Card 5 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_5.png" data-title="Feedback no WhatsApp · Confiança no Trabalho" data-desc="Você é incrível! Acredite sempre nisso! Obrigada por todo o carinho!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge wa">WhatsApp</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 5 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_5.png" data-title="Feedback no WhatsApp · Confiança no Trabalho" data-desc="Você é incrível! Acredite sempre nisso! Obrigada por todo o carinho!">
             <img src="assets/feedbacks/feedback_5.png" alt="Print de feedback no WhatsApp: você é incrível acredite sempre nisso" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Você é incrível! Acredite sempre nisso! 😍🙏💙"</p>
-            <span class="feedback-author">Cliente Fiel · Feedback de Status</span>
-          </div>
-        </article>
 
-        <!-- Card 6 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_6.png" data-title="Feedback no Instagram · Dennys faz 33" data-desc="Esse bolo lindo e muito gostoso! Amei ❤️">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge ig">Instagram</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 6 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_6.png" data-title="Feedback no Instagram · Dennys faz 33" data-desc="Esse bolo lindo e muito gostoso! Amei ❤️">
             <img src="assets/feedbacks/feedback_6.png" alt="Print de feedback no Instagram: bolo lindo e muito gostoso tema whisky" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Esse bolo lindo e muito gostoso! Amei ❤️"</p>
-            <span class="feedback-author">Dennys faz 33 · Bolo Temático</span>
-          </div>
-        </article>
 
-        <!-- Card 7 -->
-        <article class="feedback-card" data-img="assets/feedbacks/feedback_7.png" data-title="Feedback no WhatsApp · Definição de Luxo" data-desc="Bolo todo trabalhado no bico! Eu amei, você simplesmente superou o que eu queria! Belíssimo!">
-          <div class="feedback-card-top">
-            <span class="feedback-stars">★★★★★</span>
-            <span class="platform-badge wa">WhatsApp</span>
-          </div>
-          <div class="feedback-img-wrap">
+          <!-- Print 7 -->
+          <div class="print-slide-item" data-img="assets/feedbacks/feedback_7.png" data-title="Feedback no WhatsApp · Definição de Luxo" data-desc="Bolo todo trabalhado no bico! Você superou o que eu queria! Belíssimo!">
             <img src="assets/feedbacks/feedback_7.png" alt="Print de feedback no WhatsApp: definição de luxo bolo todo trabalhado no bico" loading="lazy">
-            <div class="feedback-hover-zoom">🔍 Ver Print</div>
+            <span class="print-zoom-hint">🔍 Ampliar Print</span>
           </div>
-          <div class="feedback-card-caption">
-            <p>"Bolo todo trabalhado no bico! Você superou o que eu queria!"</p>
-            <span class="feedback-author">Bolo Vintage Coração · Definição de Luxo</span>
-          </div>
-        </article>
 
+        </div>
       </div>
 
       <!-- Botão para Mais Provas no Instagram -->
@@ -765,38 +704,80 @@
     </div>
   </section>
 
-  <!-- RODAPÉ CLARO & MINIMALISTA -->
+  <!-- RODAPÉ CLARO & BOUTIQUE PATISSERIE -->
   <footer class="site-footer">
-    <div class="container footer-clean-layout">
-      <div class="footer-brand-center">
+    <div class="container footer-layout-box">
+      <!-- Topo do Rodapé: Logo & Apresentação -->
+      <div class="footer-header-row">
         <a href="#inicio" class="footer-brand-link">
           <img src="assets/logo.png" alt="Algo do Céu Confeitaria Artesanal" class="footer-emblem-logo">
-          <span class="footer-brand-title">Algo do Céu</span>
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Algo do Céu</span>
+            <span class="footer-brand-sub">Confeitaria Artesanal · Duda Soares</span>
+          </div>
         </a>
         <p class="footer-tagline">
           Confeitaria artesanal afetiva & vintage cakes produzidos com amor e padrão profissional.<br>
-          <strong>Entregas em todo o Rio de Janeiro.</strong>
+          <strong>Entregas com cuidado e pontualidade em todo o Rio de Janeiro.</strong>
         </p>
       </div>
 
-      <div class="footer-quick-links">
-        <a href="https://wa.me/5521966495123" target="_blank" rel="noopener noreferrer" class="footer-pill-btn">
-          <svg class="wa-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.237a9.994 9.994 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.037-5.176-2.925-7.062A9.925 9.925 0 0 0 12.012 2zm5.835 14.195c-.241.677-1.391 1.307-1.928 1.385-.49.071-1.129.1-3.279-.79-2.748-1.137-4.521-3.93-4.658-4.113-.136-.183-1.111-1.478-1.111-2.818 0-1.34.701-1.998.95-2.27.248-.271.542-.339.723-.339.18 0 .362.002.52.01.168.008.393-.064.615.47.229.552.779 1.899.847 2.035.068.136.113.294.023.475-.09.18-.135.293-.271.452-.136.158-.286.353-.408.474-.136.135-.278.282-.12.553.158.271.701 1.156 1.503 1.87 1.033.918 1.905 1.203 2.176 1.338.271.135.429.113.587-.068.158-.18.677-.79.858-1.061.18-.271.362-.226.61-.135.249.09 1.58.745 1.851.881.271.135.452.203.52.316.068.113.068.655-.173 1.332z"/></svg>
-          <span>WhatsApp: (21) 96649-5123</span>
+      <!-- Cards Nobres de Contato e Ação -->
+      <div class="footer-cards-grid">
+        <!-- Card WhatsApp -->
+        <a href="https://wa.me/5521966495123?text=Oi%20Duda!%20Vim%20pelo%20site%20da%20Algo%20do%20C%C3%A9u%20e%20gostaria%20de%20fazer%20uma%20encomenda!%20%F0%9F%A9%B5" target="_blank" rel="noopener noreferrer" class="footer-contact-card wa-card">
+          <div class="card-status-badge">
+            <span class="status-dot"></span>
+            <span>Atendimento Online</span>
+          </div>
+          <div class="card-icon-title">
+            <div class="contact-card-icon wa-icon-bg">
+              <svg class="wa-icon-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.237a9.994 9.994 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.669-1.037-5.176-2.925-7.062A9.925 9.925 0 0 0 12.012 2zm5.835 14.195c-.241.677-1.391 1.307-1.928 1.385-.49.071-1.129.1-3.279-.79-2.748-1.137-4.521-3.93-4.658-4.113-.136-.183-1.111-1.478-1.111-2.818 0-1.34.701-1.998.95-2.27.248-.271.542-.339.723-.339.18 0 .362.002.52.01.168.008.393-.064.615.47.229.552.779 1.899.847 2.035.068.136.113.294.023.475-.09.18-.135.293-.271.452-.136.158-.286.353-.408.474-.136.135-.278.282-.12.553.158.271.701 1.156 1.503 1.87 1.033.918 1.905 1.203 2.176 1.338.271.135.429.113.587-.068.158-.18.677-.79.858-1.061.18-.271.362-.226.61-.135.249.09 1.58.745 1.851.881.271.135.452.203.52.316.068.113.068.655-.173 1.332z"/></svg>
+            </div>
+            <div class="card-text-block">
+              <h4>Pedir pelo WhatsApp</h4>
+              <span>(21) 96649-5123 · Fale com a Duda</span>
+            </div>
+          </div>
+          <span class="card-action-arrow">Conversar Agora &rarr;</span>
         </a>
 
-        <a href="https://www.instagram.com/algodoceu_/" target="_blank" rel="noopener noreferrer" class="footer-pill-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-          <span>Instagram: @algodoceu_</span>
+        <!-- Card Instagram -->
+        <a href="https://www.instagram.com/algodoceu_/" target="_blank" rel="noopener noreferrer" class="footer-contact-card ig-card">
+          <div class="card-status-badge ig-badge">
+            <span>Galeria & Comunidade</span>
+          </div>
+          <div class="card-icon-title">
+            <div class="contact-card-icon ig-icon-bg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </div>
+            <div class="card-text-block">
+              <h4>Siga @algodoceu_</h4>
+              <span>Mais de 400 celebrações · Fotos diárias</span>
+            </div>
+          </div>
+          <span class="card-action-arrow">Ver no Instagram &rarr;</span>
         </a>
       </div>
 
-      <div class="footer-copyright-row">
-        <p>© 2026 Algo do Céu Confeitaria Artesanal · Todos os direitos reservados.</p>
+      <!-- Links Rápidos de Navegação -->
+      <nav class="footer-quick-nav">
+        <a href="#inicio">Início</a>
+        <a href="#destaques">Especialidades</a>
+        <a href="#cardapio">Vitrine de Bolos</a>
+        <a href="#encomenda">Como Encomendar</a>
+        <a href="#chef">A Chef Duda</a>
+        <a href="#depoimentos">Provas Reais</a>
+        <a href="#faq">Dúvidas Frequentes</a>
+      </nav>
+
+      <!-- Copyright e Assinatura -->
+      <div class="footer-bottom-bar">
+        <p>© 2026 Algo do Céu Confeitaria Artesanal · Rio de Janeiro, RJ</p>
         <p>Feito com amor para a <strong>Chef Duda Soares</strong> 🩵🍰</p>
       </div>
     </div>
