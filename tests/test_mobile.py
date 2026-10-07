@@ -75,46 +75,53 @@ def run_tests():
                 menu_closed = not menu.evaluate("el => el.classList.contains('open')")
                 print(f"✅ Menu fechado via toque no backdrop: {menu_closed}")
 
-            # 3. Teste de Toque em Card de Bolo -> Abre Lightbox
+            # 3. Teste de Vitrine e CTA Geral
             page.locator('#cardapio').scroll_into_view_if_needed()
             page.wait_for_timeout(200)
-            page.evaluate("() => document.querySelector('.cake-slide-card').click()")
-            page.wait_for_timeout(400)
-            lightbox = page.locator('#cakeLightbox')
-            lb_active = lightbox.evaluate("el => el.classList.contains('active')")
-            lb_img = page.locator('#lightboxImg')
-            img_src = lb_img.get_attribute('src')
-            print(f"✅ Toque no card de bolo abriu Lightbox: {lb_active} (Imagem: {img_src})")
+            cakes_count = page.evaluate("() => document.querySelectorAll('#marqueeTrack .cake-slide-card').length")
+            print(f"✅ Bolos na vitrine animada: {cakes_count}")
 
-            # Fecha lightbox via botão fechar
-            close_btn = page.locator('#closeLightbox')
-            close_btn.click()
-            page.wait_for_timeout(350)
-            lb_closed = not lightbox.evaluate("el => el.classList.contains('active')")
-            print(f"✅ Lightbox fechado com sucesso: {lb_closed}")
-
-            # 4. Teste de Toque em Print Real de Cliente -> Abre Lightbox
+            # 4. Teste de Prints Reais: NÃO abrem Lightbox (desativado conforme pedido)
             page.locator('#depoimentos').scroll_into_view_if_needed()
-            page.wait_for_timeout(300)
+            page.wait_for_timeout(200)
             prints_count = page.evaluate("() => document.querySelectorAll('#printsTrack .print-slide-item').length")
-            print(f"✅ Prints no Carrossel Animado (com clones de loop contínuo): {prints_count}")
+            print(f"✅ Prints no Carrossel Animado: {prints_count}")
 
             page.evaluate("() => document.querySelector('.print-slide-item').click()")
-            page.wait_for_timeout(400)
+            page.wait_for_timeout(250)
+            lightbox = page.locator('#cakeLightbox')
             lb_active_print = lightbox.evaluate("el => el.classList.contains('active')")
-            page.screenshot(path=f"{screenshots_dir}/{vp['name']}_lightbox_print.png")
-            print(f"✅ Toque no print real abriu Lightbox: {lb_active_print}")
+            if not lb_active_print:
+                print(f"✅ Conforme solicitado: Toque no print NÃO abre Lightbox (visualização limpa).")
+            else:
+                print(f"❌ FALHA: Lightbox ainda está abrindo ao clicar no print!")
+                all_passed = False
 
-            close_btn.click()
-            page.wait_for_timeout(300)
+            # 5. Validação do Número Oficial do WhatsApp em Todos os Links
+            bad_phones = page.evaluate("""() => {
+                const links = Array.from(document.querySelectorAll('a[href*="wa.me"]'));
+                return links.filter(a => !a.href.includes('5521989600112')).map(a => a.href);
+            }""")
+            if len(bad_phones) == 0:
+                print(f"✅ Todos os botões WhatsApp apontam para o número oficial 5521989600112!")
+            else:
+                print(f"❌ Links com número incorreto encontrados: {bad_phones}")
+                all_passed = False
 
-            # 5. Teste do Novo Rodapé Boutique
-            footer = page.locator('.site-footer')
-            footer.scroll_into_view_if_needed()
-            cards_count = page.evaluate("() => document.querySelectorAll('.footer-contact-card').length")
-            print(f"✅ Cards de Contato no Rodapé: {cards_count}")
+            # 6. Validação da Posição da Seção Chef (após FAQ)
+            chef_order_valid = page.evaluate("""() => {
+                const sections = Array.from(document.querySelectorAll('section')).map(s => s.id);
+                const faqIdx = sections.indexOf('faq');
+                const chefIdx = sections.indexOf('chef');
+                return chefIdx > faqIdx;
+            }""")
+            if chef_order_valid:
+                print(f"✅ Seção 'A Chef' está posicionada corretamente após o FAQ!")
+            else:
+                print(f"❌ Seção 'A Chef' não está após o FAQ!")
+                all_passed = False
 
-            # 5. Screenshot da página completa
+            # 7. Screenshot da página completa
             page.screenshot(path=f"{screenshots_dir}/{vp['name']}_full_page.png", full_page=True)
             print(f"📸 Screenshot salvo: {vp['name']}_full_page.png")
 

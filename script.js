@@ -4,7 +4,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  const WHATSAPP_PHONE = '5521966495123';
+  const WHATSAPP_PHONE = '5521989600112';
 
   // 1. Efeito de Scroll no Navbar
   const navbar = document.getElementById('navbar');
@@ -103,44 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightbox = document.getElementById('closeLightbox');
 
   document.addEventListener('click', (e) => {
-    // 1) Clique em Item de Print Real OU Card de Feedback
-    const printItem = e.target.closest('.print-slide-item') || e.target.closest('.feedback-card');
-    if (printItem) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const img = printItem.dataset.img || printItem.querySelector('img')?.src;
-      const title = printItem.dataset.title || 'Depoimento Real de Cliente';
-      const desc = printItem.dataset.desc || 'Mensagem enviada espontaneamente por clientes da Confeitaria Algo do Céu.';
-
-      if (lightboxImg) {
-        lightboxImg.src = img;
-        lightboxImg.alt = title;
-      }
-      if (lightboxTitle) lightboxTitle.textContent = title;
-      if (lightboxDesc) lightboxDesc.textContent = `"${desc}"`;
-      if (lightboxServes) lightboxServes.textContent = 'Feedback 100% Real no WhatsApp / Instagram';
-
-      if (lightboxOrderBtn) {
-        const orderMsg = encodeURIComponent(`Olá Duda! Vi os depoimentos e prints reais no site da Algo do Céu e gostaria de encomendar para a minha festa! 🩵🍰`);
-        lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
-      }
-
-      if (lightbox) {
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-      }
-      return;
-    }
-
-    // 2) Clique na Lupa OU no Card de Bolo (exceto botão de WhatsApp)
+    // Clique na Lupa OU no Card de Bolo que possua zoom-btn
     const cakeCard = e.target.closest('.cake-slide-card');
-    if (cakeCard && !e.target.closest('.btn-order-whatsapp')) {
+    if (cakeCard) {
+      const zoomBtn = cakeCard.querySelector('.zoom-btn');
+      if (!zoomBtn) return; // Vitrine é apenas vitrine visual sem popup
+
       e.preventDefault();
       e.stopPropagation();
-
-      const zoomBtn = cakeCard.querySelector('.zoom-btn');
-      if (!zoomBtn) return;
 
       const img = zoomBtn.dataset.img;
       const title = zoomBtn.dataset.title;
@@ -156,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lightboxServes) lightboxServes.textContent = `Rendimento: ${serves}`;
 
       if (lightboxOrderBtn) {
-        const orderMsg = encodeURIComponent(`Olá Duda! Amei o modelo *${title}* que vi no site e gostaria de encomendar para o meu evento! 🩵🍰`);
+        const orderMsg = encodeURIComponent(`Olá! Amei o modelo *${title}* que vi no site da Algo do Céu e gostaria de encomendar! 🩵🍰`);
         lightboxOrderBtn.href = `https://wa.me/${WHATSAPP_PHONE}?text=${orderMsg}`;
       }
 
